@@ -16,11 +16,6 @@
     - 별도의 Redis 의존성을 추가하는 대신 MySQL을 활용해 **인프라 복잡성**을 최소화했습니다.
     - 다중 인스턴스 환경에서도 배치 작업 및 알림 발송의 **데이터 정합성**을 원자적으로 보장합니다.
 
-### 🛡 Security & Scalability
-- **Stateless Auth Strategy**
-    - OAuth 2.0와 JWT를 결합한 인증 체계를 구축하여 서버의 확장성을 확보했습니다.
-    - Spring Security 필터 체인을 통해 유연하고 세밀한 **역할 기반 권한 관리**를 수행합니다.
-
 ### 🔔 Hybrid Notification Architecture
 사용자 경험(UX)과 메시지 신뢰성을 모두 고려한 지능형 알림 아키텍처입니다.
 - **Active-Passive Fallback**
@@ -39,13 +34,7 @@
     - `IU`, `mcg` 등 파편화된 단위를 내부 연산 기준으로 **자동 표준화**하여 분석의 정밀도를 보장합니다.
 - **Parallel Analysis Engine**
     - `CompletableFuture` 기반 비동기 처리를 통해 대용량 분석 시에도 지연 없는 응답 속도를 제공합니다.
-
-### 🔍 Search & Integration Optimization
-- **Similarity Match Search**
-    - 단순 키워드 매칭을 넘어 문자열 유사도 알고리즘을 도입, 사용자의 검색 의도를 정확히 파악합니다.
-- **Reactive External Integration**
-    - WebClient를 활용한 Non-blocking 통신으로 외부 API 및 AI 서버와 효율적으로 연동합니다.
-
+      
 ---
 
 ## 🏗 Technical Architecture
@@ -54,7 +43,7 @@
 - **Modularity**: 기능을 도메인별로 분리하여 응집도를 높이고 결합도를 낮춘 패키지 구조를 채택했습니다.
 - **Scalability**: 데이터베이스 기반 분산 락과 무상태 인증을 통해 시스템의 수평적 확장성을 고려했습니다.
 - **Reliability**: 전역 예외 처리(Global Exception Handling)와 하이브리드 알림 파이프라인으로 서비스 안정성을 확보했습니다.
-
+  
 ---
 
 ## 🛠 Tech Stack
