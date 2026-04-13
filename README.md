@@ -14,42 +14,27 @@
 
 ## ✨ 주요 기능 (Key Features)
 
-### 1. 🔍 AI 기반 영양제 탐지 및 분석 (AI Vision)
-- **고성능 객체 탐지**: **YOLOv11m** 모델을 기반으로 다양한 환경(조명, 각도, 배경)에서도 높은 정확도로 영양제 병을 실시간 탐지합니다.
-- **데이터 파이프라인 고도화 (v3)**: 
-  - **Negative Sampling**: 텀블러, 컵 등 유사 물체의 오탐지(False Positive)를 획기적으로 줄이기 위해 배경 이미지를 포함한 Hard Negative Mining 적용.
-  - **Human-in-the-loop**: `review_labels.py` 검수 도구를 통한 라벨링 정확도 99% 달성.
-  - 최종 모델 성능: **mAP@50 0.90 이상** 달성.
-- **OCR 성분 추출**: 촬영된 영양제의 라벨 텍스트를 인식하여 주요 성분 함량을 분석합니다.
+### 1. 🔔 지능형 알림 시스템 (Smart Notification)
+**"내 상황에 맞춰 눈치껏 알려주는 똑똑한 영양비서"**
+- **스마트 라우팅**: 앱 접속 중엔 조용한 **인앱 토스트**, 비접속 시엔 확실한 **FCM 푸시**로 전환해 알림 피로도를 줄입니다.
+- **묶음 발송**: "비타민C 외 2건 섭취 시간입니다." 여러 건의 알림을 한 번에 깔끔하게 묶어 보냅니다.
+- **상태 감지**: 화면 활성화 여부(Visible)를 파악해 최적의 알림 방식을 제공합니다.
 
-### 2. 🔔 지능형 알림 시스템 (Smart Notification)
-- **중복 알림 방지 (Smart Routing)**:
-  - 사용자가 앱에 접속 중(SSE 연결)일 때는 **인앱 토스트**로, 비접속 시에는 **FCM 푸시**로 알림을 자동 전환하여 피로도를 최소화합니다.
-- **묶음 알송 (Bundling)**:
-  - 동일 시간대에 섭취해야 할 여러 영양제 알림을 하나로 통합하여 발송합니다. ("비타민C 외 2건 섭취 시간입니다.")
-- **가시성 필터링**: 화면 활성화 여부(Visible/Hidden)를 감지하여 알림 방식을 동적으로 최적화합니다.
+### 2. 📊 개인 맞춤형 리포트 및 관리
+**"단 1초 만에 확인하는 내 영양 밸런스!"**
+- **과다 섭취 경고**: 섭취량을 분석하여 권장량 초과나 과다 섭취 위험을 미리 방지해 줍니다.
+- **데이터 시각화**: 화려한 인터랙티브 그래프(Recharts)로 영양 상태를 한눈에 파악하세요.
+- **초간편 기록**: 드래그 앤 드롭이나 원클릭만으로 오늘의 섭취를 쉽고 트렌디하게 기록할 수 있습니다.
 
-### 3. 📊 개인 맞춤형 리포트 및 관리
-- **영양 성분 분석 리포트**: 
-  - 일일 섭취량과 상한 섭취량을 비교 분석하여 **과다 섭취 경고(Warning)**를 제공합니다.
-  - 직관적인 그래프(**Recharts**)를 통해 영양 상태를 시각화합니다.
-- **타임라인 및 섭취 기록**:
-  - 드래그 앤 드롭 또는 원클릭으로 손쉬운 섭취 기록 관리.
-  - 다크 모드/라이트 모드를 완벽 지원하는 반응형 UI.
-- **나의 영양제 관리**: 보유 중인 영양제 목록과 잔여량을 한눈에 확인 가능.
+### 3. 🔍 AI 기반 탑티어 영양제 탐지 (AI Vision)
+**"귀찮은 영양제 등록? 카메라로 찰칵! 비추기만 하세요."**
+- **압도적인 인식률**: 어두운 곳에서도 0.1초 만에 영양제만 정확히 짚어냅니다. (YOLOv11m, 99% 정확도)
+- **오인식 철통 방어**: 비슷하게 생긴 텀블러나 컵(Hard Negative)은 완벽히 걸러냅니다.
+- **숨은 성분 추출**: OCR 기능으로 라벨의 숨은 성분과 함량까지 자동으로 읽어냅니다.
 
 ---
 
 ## 🛠 기술 스택 (Tech Stack)
-
-### **Frontend**
-- **Framework**: Alert Next.js 16 (React 19, TypeScript)
-- **Styling**: Tailwind CSS, Framer Motion (애니메이션)
-- **PWA**: `@ducanh2912/next-pwa` (앱 수준의 사용자 경험 제공)
-- **Notification**: Google Firebase (FCM)
-- **Visualization**: Recharts (데이터 시각화)
-- **State Management**: Context API & Custom Hooks
-- **Network**: Axios
 
 ### **Backend**
 - **Framework**: Spring Boot (Java)
@@ -65,6 +50,15 @@
 - **Serving**: FastAPI (AI 서버)
 - **Preprocessing**: Albumentations (데이터 증강), OpenCV
 - **Tools**: COCO Dataset Filtering, Custom Labeling Tools (`auto_label.py`, `review_labels.py`)
+
+### **Frontend**
+- **Framework**: Alert Next.js 16 (React 19, TypeScript)
+- **Styling**: Tailwind CSS, Framer Motion (애니메이션)
+- **PWA**: `@ducanh2912/next-pwa` (앱 수준의 사용자 경험 제공)
+- **Notification**: Google Firebase (FCM)
+- **Visualization**: Recharts (데이터 시각화)
+- **State Management**: Context API & Custom Hooks
+- **Network**: Axios
 
 ---
 
@@ -118,5 +112,7 @@ S14P11A505/
 
 ## 👨‍💻 팀원 및 기여 (Contributors)
 
-팀장 : 박창희
-팀원 : 하윤철, 박종현, 이유정, 허승 , 김태희
+- **Frontend** : 박창희(팀장), 이유정, 허승
+- **Backend** : 박종현, 김태희
+- **AI** : 박창희
+- **Infrastructure** : 하윤철, 박종현
